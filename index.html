@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CompTIA A+ 220-1202 — Study Hub</title>
+    <meta
+      name="description"
+      content="CompTIA A+ 220-1202 study modules, quizzes, midterm, and final exam."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #faf9f7;
+        --surface: #ffffff;
+        --text: #1a1814;
+        --muted: #7a756c;
+        --border: #e8e4de;
+        --accent: #1a1814;
+        --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+        --font-serif: "Playfair Display", Georgia, serif;
+        --max: 1080px;
+      }
+
+      [data-theme="dark"] {
+        --bg: #0f0e0c;
+        --surface: #171612;
+        --text: #f0ece4;
+        --muted: #8a8578;
+        --border: #2a2820;
+        --accent: #f0ece4;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid var(--border);
+        background: color-mix(in oklab, var(--bg) 92%, transparent);
+        backdrop-filter: blur(16px);
+      }
+
+      .topbar {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 32px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .brand {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        opacity: 0.85;
+      }
+
+      .theme-toggle {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        cursor: pointer;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
+
+      .theme-toggle svg {
+        width: 14px;
+        height: 14px;
+        fill: currentColor;
+      }
+
+      .hero {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 80px 32px 64px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-kicker {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .hero-kicker::before {
+        content: "";
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--muted);
+      }
+
+      .hero h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(38px, 6vw, 64px);
+        line-height: 1.05;
+        letter-spacing: -0.01em;
+        max-width: 760px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        color: var(--muted);
+        max-width: 600px;
+        line-height: 1.7;
+      }
+
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 48px 32px 72px;
+      }
+
+      .section {
+        margin-bottom: 56px;
+      }
+
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .section-label span {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+
+      .section-rule {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .card {
+        display: block;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        padding: 24px;
+      }
+
+      .card-kicker {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      .card-title {
+        font-family: var(--font-serif);
+        font-size: 28px;
+        line-height: 1.1;
+        margin-bottom: 10px;
+      }
+
+      .card-desc {
+        font-size: 15px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 18px;
+      }
+
+      .card-meta {
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      footer {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 24px 32px;
+        border-top: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11px;
+        color: var(--muted);
+        letter-spacing: 0.04em;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      @media (max-width: 800px) {
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .topbar {
+          padding: 0 20px;
+        }
+
+        .hero {
+          padding: 48px 20px 40px;
+        }
+
+        .wrap {
+          padding: 36px 20px 56px;
+        }
+
+        footer {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="topbar">
+        <div class="brand">CompTIA A+ · 220-1202</div>
+
+        <button
+          class="theme-toggle"
+          id="themeBtn"
+          aria-label="Toggle theme"
+        >
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 18a6 6 0 110-12 6 6 0 010 12zm0-2a4 4 0 100-8 4 4 0 000 8zm0-10V2m0 20v-4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M2 12h4m16 0h-4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="hero-kicker">Study Hub</div>
+
+        <h2>
+          Modules, quizzes, a checkpoint exam, and a timed final for CompTIA A+
+          Core 2.
+        </h2>
+
+        <p>
+          This hub covers hrough 22 with refreshed multiple-choice
+          assessments and updated Core 2 topic alignment.
+        </p>
+      </div>
+
+      <div class="wrap">
+        <div class="section">
+          <div class="section-label">
+            <span>Study Modules</span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="card-grid">
+            <a
+              class="card"
+              href="Support_Procedures_and_Communication/index.html"
+            >
+              <div class="card-kicker">Module X</div>
+              <div class="card-title">Support Procedures & Communication</div>
+              <div class="card-desc">
+                Documentation, ticketing, communication, escalation, and
+                operating system categories.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Windows_Setup_and_Configuration/index.html">
+              <div class="card-kicker">Module XI</div>
+              <div class="card-title">Windows Setup & Configuration</div>
+              <div class="card-desc">
+                Windows user settings, system settings, applications, and
+                cloud-based apps.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Windows_Tools_and_Management/index.html">
+              <div class="card-kicker">Module XII</div>
+              <div class="card-title">Windows Tools & Management</div>
+              <div class="card-desc">
+                Management consoles, command-line tools, and Windows networking
+                utilities.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a
+              class="card"
+              href="Windows_Support_and_Troubleshooting/index.html"
+            >
+              <div class="card-kicker">Module XIII</div>
+              <div class="card-title">Windows Support & Troubleshooting</div>
+              <div class="card-desc">
+                Windows networking issues, remote access, performance
+                troubleshooting, and OS recovery.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Windows_Security_and_Sharing/index.html">
+              <div class="card-kicker">Module XIV</div>
+              <div class="card-title">Windows Security & Sharing</div>
+              <div class="card-desc">
+                Authentication concepts, Windows security settings, and
+                file/share permissions.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="OS_Installation_and_Upgrades/index.html">
+              <div class="card-kicker">Module XV</div>
+              <div class="card-title">OS Installation & Upgrades</div>
+              <div class="card-desc">
+                Windows editions, deployment choices, installation methods, and
+                upgrade planning.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Linux_and_macOS_Support/index.html">
+              <div class="card-kicker">Module XVI</div>
+              <div class="card-title">Linux & macOS Support</div>
+              <div class="card-desc">
+                Linux features, package and network management, and macOS
+                support basics.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="SOHO_Security_and_Threats/index.html">
+              <div class="card-kicker">Module XVII</div>
+              <div class="card-title">SOHO Security & Threats</div>
+              <div class="card-desc">
+                Threats, wireless security, router hardening, and layered
+                controls for SOHO networks.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Endpoint_and_Browser_Security/index.html">
+              <div class="card-kicker">Module XVIII</div>
+              <div class="card-title">Endpoint & Browser Security</div>
+              <div class="card-desc">
+                Account security, workstation hardening, browser protection, and
+                incident-style troubleshooting.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Mobile_Software_and_Security/index.html">
+              <div class="card-kicker">Module XIX</div>
+              <div class="card-title">Mobile Software & Security</div>
+              <div class="card-desc">
+                Mobile OS security, app troubleshooting, deployment models, and
+                mobile security issues.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Backups_Data_Handling_and_AI/index.html">
+              <div class="card-kicker">Module XX</div>
+              <div class="card-title">Backups, Data Handling & AI</div>
+              <div class="card-desc">
+                Backup and recovery methods, sensitive data handling, and
+                current AI fundamentals.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+
+            <a class="card" href="Operations_Safety_and_Scripting/index.html">
+              <div class="card-kicker">Module XXI</div>
+              <div class="card-title">Operations, Safety & Scripting</div>
+              <div class="card-desc">
+                Change and inventory management, safety and environmental
+                procedures, and scripting basics.
+              </div>
+              <div class="card-meta">Study module</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">
+            <span>Practice Quizzes</span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="card-grid">
+            <a
+              class="card"
+              href="Quiz_Support_Procedures_and_Communication/index.html"
+            >
+              <div class="card-kicker">Module X Quiz</div>
+              <div class="card-title">
+                Support Procedures & Communication Quiz
+              </div>
+              <div class="card-desc">
+                10 multiple-choice questions covering support procedures &
+                communication.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Windows_Setup_and_Configuration/index.html"
+            >
+              <div class="card-kicker">Module XI Quiz</div>
+              <div class="card-title">Windows Setup & Configuration Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering windows setup &
+                configuration.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Windows_Tools_and_Management/index.html"
+            >
+              <div class="card-kicker">Module XII Quiz</div>
+              <div class="card-title">Windows Tools & Management Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering windows tools &
+                management.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Windows_Support_and_Troubleshooting/index.html"
+            >
+              <div class="card-kicker">Module XIII Quiz</div>
+              <div class="card-title">
+                Windows Support & Troubleshooting Quiz
+              </div>
+              <div class="card-desc">
+                10 multiple-choice questions covering windows support &
+                troubleshooting.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Windows_Security_and_Sharing/index.html"
+            >
+              <div class="card-kicker">Module XIV Quiz</div>
+              <div class="card-title">Windows Security & Sharing Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering windows security &
+                sharing.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_OS_Installation_and_Upgrades/index.html"
+            >
+              <div class="card-kicker">Module XV Quiz</div>
+              <div class="card-title">OS Installation & Upgrades Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering os installation &
+                upgrades.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a class="card" href="Quiz_Linux_and_macOS_Support/index.html">
+              <div class="card-kicker">Module XVI Quiz</div>
+              <div class="card-title">Linux & macOS Support Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering linux & macos support.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a class="card" href="Quiz_SOHO_Security_and_Threats/index.html">
+              <div class="card-kicker">Module XVII Quiz</div>
+              <div class="card-title">SOHO Security & Threats Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering soho security & threats.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Endpoint_and_Browser_Security/index.html"
+            >
+              <div class="card-kicker">Module XVIII Quiz</div>
+              <div class="card-title">Endpoint & Browser Security Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering endpoint & browser
+                security.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Mobile_Software_and_Security/index.html"
+            >
+              <div class="card-kicker">Module XIX Quiz</div>
+              <div class="card-title">Mobile Software & Security Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering mobile software &
+                security.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Backups_Data_Handling_and_AI/index.html"
+            >
+              <div class="card-kicker">Module XX Quiz</div>
+              <div class="card-title">Backups, Data Handling & AI Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering backups, data handling &
+                ai.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+
+            <a
+              class="card"
+              href="Quiz_Operations_Safety_and_Scripting/index.html"
+            >
+              <div class="card-kicker">Module XXI Quiz</div>
+              <div class="card-title">Operations, Safety & Scripting Quiz</div>
+              <div class="card-desc">
+                10 multiple-choice questions covering operations, safety &
+                scripting.
+              </div>
+              <div class="card-meta">10 multiple-choice questions</div>
+            </a>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-label">
+            <span>Assessment</span>
+            <div class="section-rule"></div>
+          </div>
+
+          <div class="card-grid">
+            <a class="card" href="Midterm_Exam/index.html">
+              <div class="card-kicker">Midterm</div>
+              <div class="card-title">Core 2 Midterm Checkpoint</div>
+              <div class="card-desc">
+                A cumulative 60-question checkpoint covering Modules X through
+                XV. It is untimed and designed to show whether you are on track
+                before the final exam.
+              </div>
+              <div class="card-meta">60 questions · untimed</div>
+            </a>
+
+            <a class="card" href="Final_Exam/index.html">
+              <div class="card-kicker">Final Exam</div>
+              <div class="card-title">CompTIA-Style Core 2 Final</div>
+              <div class="card-desc">
+                A 90-question multiple-choice final covering Modules X through
+                XXI with a 90-minute timer, scaled scoring, and pass/fail
+                readiness feedback.
+              </div>
+              <div class="card-meta">
+                90 questions · 90 minutes · pass at 750
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <span>CompTIA A+ 220-1202 · Study Hub</span>
+      <span id="year"></span>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const btn = document.getElementById("themeBtn");
+      const saved = localStorage.getItem("kb_theme");
+
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+
+      btn.addEventListener("click", () => {
+        const cur =
+          document.documentElement.getAttribute("data-theme") || "dark";
+        const next = cur === "dark" ? "light" : "dark";
+
+        document.documentElement.setAttribute("data-theme", next);
+        localStorage.setItem("kb_theme", next);
+      });
+    </script>
+  </body>
+</html>
